@@ -1,0 +1,18 @@
+"*":
+  "exception-reporting":
+    userId: "9f05ef31-58cd-77e4-f466-08cfa62f449e"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "atom-light-ui"
+      "atom-light-syntax"
+    ]
+  editor:
+    invisibles: {}
+    tabType: "soft"
+  term2:
+    autoRunCommand: "login -f `whoami`"
+  "atom-typescript": {}
+  linter:
+    showErrorPanel: false
