@@ -8,10 +8,9 @@ for v in $dotfiles; do
   #echo $filename
   #$HOMEにシンボリックリンクを作成
   if [ $filename != $git ]; then
-    if [ -e $HOME/$filename ]; then
-      echo $HOME/$filename はすでにあります。
-    else
+    if [! -e $HOME/$filename ]; then
       ln -s $v $HOME/$filename
+      echo $filename を作成しました。
     fi
   fi
 done
