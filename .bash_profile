@@ -1,3 +1,4 @@
+export LANG=ja_JP.UTF-8
 eval "$(rbenv init -)"
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh

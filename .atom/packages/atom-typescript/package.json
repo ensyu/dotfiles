@@ -1,6 +1,6 @@
 {
   "name": "atom-typescript",
-  "version": "7.12.1",
+  "version": "7.14.1",
   "main": "./dist/main/atomts",
   "bin": {
     "atbuild": "./dist/main/bin/atbuild"
@@ -59,7 +59,7 @@
     "immutable": "^3.7.3",
     "json2dts": "0.0.1",
     "mkdirp": "^0.5.0",
-    "ntypescript": "1.201511240604.1",
+    "ntypescript": "1.201512030612.1",
     "react": "^0.13.3",
     "season": "^5.1.4",
     "tsconfig": "^2.2.0",
@@ -78,10 +78,10 @@
   ],
   "readme": "# Atom TypeScript\n\n[![Join the chat at https://gitter.im/TypeStrong/atom-typescript](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/TypeStrong/atom-typescript?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\nJavaScript developers can now just open a `.ts` file and start hacking away like they are used to. No `grunt` no `Visual Studio`. Just pure coding.\n\n## Installation\n\n1. Install [atom](https://atom.io).\n2. `apm install atom-typescript` (`apm` needs `git` in your path)\n3. Fire up atom. Open a TypeScript file. Potentially wait for further installs (just `apm install linter` if its not there already).\n\n**Additional Notes**: [Some packages we love](https://github.com/TypeStrong/atom-typescript/blob/master/docs/packages.md).\n\n## Reviews\n*Featured on the TypeScript home page under tools http://www.typescriptlang.org/* and [demoed by **Anders Hejlsberg**](https://twitter.com/schwarty/status/593858817894404096).\n\n\"I was shocked at how good it felt to poke around on the compiler with it.\" [Jonathan Turner](https://twitter.com/jntrnr)  \n\"And guess what, it worked perfectly. Like everything else! Faster than Visual Studio!\" [Daniel Earwicker](http://stackoverflow.com/users/27423/daniel-earwicker)  \n\"It's a thing of beauty - they had me at '*Type information on hover*'. Discovering  `tsconfig.json` support as well was just an enormous bonus.\" [John Reilly](https://twitter.com/johnny_reilly)  \n\"This may be your best option for editing TypeScript at the moment - very nice!\" [Rasmus Schultz](https://twitter.com/mindplaydk)\n\n[*Add yours!*](https://github.com/TypeStrong/atom-typescript/issues/66)\n\n# Features\n* Autocomplete\n* Live error analysis\n* Type information on hover\n* Compile on save\n* Project Context Support (`tsconfig.json`)\n* Project Build Support\n* `package.json` Support\n* React Support\n* Format code\n* Goto Declaration\n* Find References\n* Block comment and uncomment\n* Goto history (goto next/previous error in open files, goto next/previous build)\n* Auto indent for new lines\n* TypeScript context menu\n* Symbols in Project\n* Symbols in File\n* Semantic View\n* Rename refactoring\n* Quick Fix\n* Toggle Breakpoint\n* Common Snippets\n* `import` / `/// <reference` relative path resolution\n* Output Toggle\n* AST visualizer\n* Dependency View\n* Sync\n\n# FAQ\nLocated online : https://github.com/TypeStrong/atom-typescript/blob/master/docs/faq.md\n\n----\n\n# Feature Details\n## Auto Complete\nInternally using AutoComplete+. Just start typing and hints will show up. Or you can explicitly trigger it using `ctrl+space` or `cmd+space`. Press `tab` to make a selection.\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/fastErrorCheckingAndAutoComplete2.gif)\n\n\n## Type information on hover\nJust hover\n\n![you definitely get the point](https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/hover.png)\n\n## Compile on save\nTypeScript files will be compiled on save. Different notifications are given if `emit` was successful or not. [Configuration driven by `tsconfig.json`](https://github.com/TypeStrong/atom-typescript/blob/master/docs/tsconfig.md)\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/compile%20success.png)\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/compile%20error.png)\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/emit%20error.png)\n\n## Project Support\nSupported via `tsconfig.json` ([read more](https://github.com/TypeStrong/atom-typescript/blob/master/docs/tsconfig.md)) which is going to be the defacto Project file format for the next versions of TypeScript.\n\nIt also supports `filesGlob` which will expand `files` for you based on `minmatch|glob|regex` (similar to grunt).\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/proj.png)\n\n### Project Build Support\nShortcut: `F6`. If there are any errors they are shown as well.\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/build%20success.png)\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/build%20errors.png)\n\n## NPM Module Support\nWe have a sample NPM module : https://github.com/basarat/ts-npm-module  (trick : in tsconfig have `\"declaration\" : true` an in package.json have a `typings` field pointing to the `main` file) and its usage is demoed in https://github.com/basarat/ts-npm-module-consume.\n\n## React Support\n\n### Configuration tips\n\nCovered here : http://basarat.gitbooks.io/typescript/content/docs/jsx/tsx.html\n\n### Html to TSX\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/htmltotsx.gif)\n\n## Format Code\nShortcut : `ctrl+alt+l` or `cmd+alt+l`. Will format just the selection if you have something selected otherwise it will format the entire file.\n\n## Go to Declaration\nShortcut : `F12`. Will open the *first* declaration of the said item for now. (Note: some people call it Go to Definition)\n\n## Find References\nShortcut `shift+F12`. Also called *find usages*.\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/findReferences.png)\n\n## Block Comment and Uncomment\n`ctrl+/` or `cmd+/`. Does a block comment / uncomment of code.\n\n## Go to Next / Go to Previous\n`f8` and `shift+f8` respectively. This will go to next/previous *errors in open files* OR *build error* OR *references* based on which tab you have selected.\n\n## Context menu\nQuickly toggle the TypeScript panel OR select active TypeScript panel tab and other stuff using the context menu. `ctrl+;` or `cmd+;`.\n\n## Symbols View\nIntegrates with atom's symbols view (`ctrl+r` or `cmd+r`) to provide you with a list of searchable symbols in the current file.\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/symbolsView.gif)\n\n## Semantic View\nA bird's eye view of the current file. Use command `toggle semantic view`. The view updates while you edit the code. You can also click to jump to any portion of the file.\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/semanticView.png)\n\n## Project Symbols View\nAlso called Go To Type in other IDEs. Integrates with atom's project level symbols (`ctrl+shift+r` or `cmd+shift+r`) to provide you with a list of searchable symbols in the *entire typescript project*.\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/projectSymbolView.png)\n\n## Refactoring\n\n### Rename\n`f2` to initiate rename. `enter` to commit and `esc` to cancel.\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript/master/docs/screens/renameRefactoring.png)\n\n## Quick Fix\nPress the `TypeScript: Quick Fix` shortcut `alt+enter` at an error location to trigger quick fixes. Select the quick fix you want and press `enter` to commit e.g\n\n### Add class members\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/addClassMember.gif)\n\n### More Quick fixes\nWe are actively adding quick fixes so [**go here for an up to date list**](https://github.com/TypeStrong/atom-typescript/blob/master/docs/quickfix.md).\n\n## Toggle Breakpoint\nUse command `TypeScript: Toggle Breakpoint` shortcut `f9`:\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/toggleBreakpoint.gif)\n\n## tsconfig validation\nWe will validate it and help you to fix it :)\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/errorcases/invalidProjectOptions/invalidProjectOptions.gif)\n\n## Snippets\n### Relative Paths\nRelative paths have traditionally been a pain, not anymore. Use `import` or `ref` and press `tab` to trigger snippet.\n\n`ref`\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/ref%20snippet.gif)\n\n`import`\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/import%20snippet.gif)\n\nNote that within the path string you get autocomplete (`ctrl+space`/`cmd+space`) for all the files in the project by filename (works for both `ref` and `import`).\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/pathChange.gif)\n\n## Output Toggle\n`ctrl+shift+m` to toggle the output co**m**piled JS file for a give TypeScript file. The keyboard shortcut is consistent with atom's markdown preview.\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/outputToggle.gif)\n\n## AST Visualizer\nCommand : `Typescript: Ast`. Useful when authoring new features.\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/astVisualizer.gif)\n\nAlso command : `TypeScript: Ast Full` that includes the `trivia` (punctuation, comments etc. received from `ts.Node.getChildren()`) as well.\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/astFull.png)\n\n## Dependency View\nCommand : `Typescript: Dependency View`. A dependency viewer for insight into the project if you use external modules. You can zoom, pan, drag points around and hover over nodes. ([more details](https://github.com/TypeStrong/atom-typescript/blob/master/docs/dependency-view.md))\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/dependencyView/teaser.png)\n\n## Sync\nWe try to keep as much of the stuff in sync while you edit code. However *in dire circumstances*:\n\n* a soft sync is done when you save a file `ctrl+s` and we will completely reprocess the *active* file. This might not fix stuff if the error is because of *some other file on the file system*.\n* `ctrl+'` or `cmd+'` : If you deleted files in the background or renamed them or jumped git branches or *something weird just happened* then sync. No need to restart your IDE :).\n\n![](https://raw.githubusercontent.com/TypeStrong/atom-typescript-examples/master/screens/sync.gif)\n\n## Contributing\n\nLook at [CONTRIBUTING.md](https://github.com/TypeStrong/atom-typescript/blob/master/CONTRIBUTING.md) for curiosity. We work hard to keep the code as approachable as possible and are highly keen on helping you help us.\n\n## Changelog\nBreaking changes [available online](https://github.com/TypeStrong/atom-typescript/blob/master/docs/CHANGELOG.md).\n",
   "readmeFilename": "README.md",
-  "_id": "atom-typescript@7.12.1",
-  "_shasum": "10aafad241c61d37e55434dd3a1023837f99ef5f",
-  "_resolved": "file:../d-1151030-1482-kvczc2/package.tgz",
-  "_from": "../d-1151030-1482-kvczc2/package.tgz",
+  "_id": "atom-typescript@7.14.1",
+  "_shasum": "900e2bde226974b27621d42126a58ade8b064bc0",
+  "_resolved": "file:../d-115117-2875-jsclh9/package.tgz",
+  "_from": "../d-115117-2875-jsclh9/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
@@ -702,7 +702,7 @@
       },
       {
         "name": "chokidar",
-        "version": "1.3.0",
+        "version": "1.4.0",
         "path": "node_modules/babel/node_modules/chokidar/index.js"
       },
       {
@@ -717,23 +717,18 @@
       },
       {
         "name": "micromatch",
-        "version": "2.3.3",
+        "version": "2.3.5",
         "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/index.js"
       },
       {
         "name": "arr-diff",
-        "version": "1.1.0",
+        "version": "2.0.0",
         "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/index.js"
       },
       {
         "name": "arr-flatten",
         "version": "1.0.1",
         "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/node_modules/arr-flatten/index.js"
-      },
-      {
-        "name": "array-slice",
-        "version": "0.2.3",
-        "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/node_modules/array-slice/index.js"
       },
       {
         "name": "array-unique",
@@ -752,18 +747,23 @@
       },
       {
         "name": "fill-range",
-        "version": "2.2.2",
+        "version": "2.2.3",
         "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/index.js"
       },
       {
         "name": "is-number",
-        "version": "1.1.2",
+        "version": "2.1.0",
         "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/is-number/index.js"
       },
       {
         "name": "isobject",
-        "version": "1.0.2",
+        "version": "2.0.0",
         "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/index.js"
+      },
+      {
+        "name": "isarray",
+        "version": "0.0.1",
+        "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/index.js"
       },
       {
         "name": "randomatic",
@@ -771,19 +771,14 @@
         "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/index.js"
       },
       {
-        "name": "is-number",
-        "version": "2.1.0",
-        "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/is-number/index.js"
-      },
-      {
         "name": "kind-of",
-        "version": "3.0.2",
-        "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/is-number/node_modules/kind-of/index.js"
+        "version": "2.0.1",
+        "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/kind-of/index.js"
       },
       {
         "name": "is-buffer",
         "version": "1.1.0",
-        "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/is-number/node_modules/kind-of/node_modules/is-buffer/index.js"
+        "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/kind-of/node_modules/is-buffer/index.js"
       },
       {
         "name": "repeat-string",
@@ -837,7 +832,7 @@
       },
       {
         "name": "kind-of",
-        "version": "2.0.1",
+        "version": "3.0.2",
         "path": "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/kind-of/index.js"
       },
       {
@@ -987,7 +982,7 @@
       },
       {
         "name": "process-nextick-args",
-        "version": "1.0.3",
+        "version": "1.0.6",
         "path": "node_modules/babel/node_modules/chokidar/node_modules/readdirp/node_modules/readable-stream/node_modules/process-nextick-args/index.js"
       },
       {
@@ -1142,7 +1137,7 @@
       },
       {
         "name": "d3",
-        "version": "3.5.9",
+        "version": "3.5.10",
         "path": "node_modules/d3/d3.js"
       },
       {
@@ -1182,7 +1177,7 @@
       },
       {
         "name": "es5-ext",
-        "version": "0.10.8",
+        "version": "0.10.9",
         "path": "node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/index.js"
       },
       {
@@ -1332,7 +1327,7 @@
       },
       {
         "name": "htmlparser2",
-        "version": "3.8.3",
+        "version": "3.9.0",
         "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/lib/index.js"
       },
       {
@@ -1363,16 +1358,11 @@
       {
         "name": "entities",
         "version": "1.1.1",
-        "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/entities/index.js"
-      },
-      {
-        "name": "entities",
-        "version": "1.0.0",
         "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/entities/index.js"
       },
       {
         "name": "readable-stream",
-        "version": "1.1.13",
+        "version": "2.0.4",
         "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/readable.js"
       },
       {
@@ -1391,9 +1381,19 @@
         "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/index.js"
       },
       {
+        "name": "process-nextick-args",
+        "version": "1.0.6",
+        "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/process-nextick-args/index.js"
+      },
+      {
         "name": "string_decoder",
         "version": "0.10.31",
         "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/string_decoder/index.js"
+      },
+      {
+        "name": "util-deprecate",
+        "version": "1.0.2",
+        "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/util-deprecate/node.js"
       },
       {
         "name": "nwmatcher",
@@ -1442,7 +1442,7 @@
       },
       {
         "name": "process-nextick-args",
-        "version": "1.0.3",
+        "version": "1.0.6",
         "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/request/node_modules/bl/node_modules/readable-stream/node_modules/process-nextick-args/index.js"
       },
       {
@@ -1637,7 +1637,7 @@
       },
       {
         "name": "sshpk",
-        "version": "1.7.0",
+        "version": "1.7.1",
         "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/request/node_modules/http-signature/node_modules/sshpk/lib/index.js"
       },
       {
@@ -1697,12 +1697,12 @@
       },
       {
         "name": "mime-types",
-        "version": "2.1.7",
+        "version": "2.1.8",
         "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/request/node_modules/mime-types/index.js"
       },
       {
         "name": "mime-db",
-        "version": "1.19.0",
+        "version": "1.20.0",
         "path": "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/request/node_modules/mime-types/node_modules/mime-db/index.js"
       },
       {
@@ -1762,43 +1762,18 @@
       },
       {
         "name": "yargs",
-        "version": "3.30.0",
+        "version": "3.31.0",
         "path": "node_modules/json2dts/node_modules/yargs/index.js"
       },
       {
         "name": "camelcase",
-        "version": "1.2.1",
+        "version": "2.0.1",
         "path": "node_modules/json2dts/node_modules/yargs/node_modules/camelcase/index.js"
       },
       {
         "name": "cliui",
         "version": "3.1.0",
         "path": "node_modules/json2dts/node_modules/yargs/node_modules/cliui/index.js"
-      },
-      {
-        "name": "string-width",
-        "version": "1.0.1",
-        "path": "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/index.js"
-      },
-      {
-        "name": "code-point-at",
-        "version": "1.0.0",
-        "path": "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/code-point-at/index.js"
-      },
-      {
-        "name": "number-is-nan",
-        "version": "1.0.0",
-        "path": "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/code-point-at/node_modules/number-is-nan/index.js"
-      },
-      {
-        "name": "is-fullwidth-code-point",
-        "version": "1.0.0",
-        "path": "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/is-fullwidth-code-point/index.js"
-      },
-      {
-        "name": "number-is-nan",
-        "version": "1.0.0",
-        "path": "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan/index.js"
       },
       {
         "name": "strip-ansi",
@@ -1836,6 +1811,41 @@
         "path": "node_modules/json2dts/node_modules/yargs/node_modules/os-locale/node_modules/lcid/node_modules/invert-kv/index.js"
       },
       {
+        "name": "string-width",
+        "version": "1.0.1",
+        "path": "node_modules/json2dts/node_modules/yargs/node_modules/string-width/index.js"
+      },
+      {
+        "name": "code-point-at",
+        "version": "1.0.0",
+        "path": "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/code-point-at/index.js"
+      },
+      {
+        "name": "number-is-nan",
+        "version": "1.0.0",
+        "path": "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/code-point-at/node_modules/number-is-nan/index.js"
+      },
+      {
+        "name": "is-fullwidth-code-point",
+        "version": "1.0.0",
+        "path": "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/is-fullwidth-code-point/index.js"
+      },
+      {
+        "name": "number-is-nan",
+        "version": "1.0.0",
+        "path": "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan/index.js"
+      },
+      {
+        "name": "strip-ansi",
+        "version": "3.0.0",
+        "path": "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/strip-ansi/index.js"
+      },
+      {
+        "name": "ansi-regex",
+        "version": "2.0.0",
+        "path": "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/strip-ansi/node_modules/ansi-regex/index.js"
+      },
+      {
         "name": "window-size",
         "version": "0.1.4",
         "path": "node_modules/json2dts/node_modules/yargs/node_modules/window-size/index.js"
@@ -1857,7 +1867,7 @@
       },
       {
         "name": "ntypescript",
-        "version": "1.201511240604.1",
+        "version": "1.201512030612.1",
         "path": "node_modules/ntypescript/bin/ntypescript.js"
       },
       {
@@ -2093,7 +2103,6 @@
     ],
     "extensions": {
       ".js": [
-        "Gruntfile.js",
         "globals.js",
         "node_modules/atom-package-deps/lib/helper.js",
         "node_modules/atom-package-deps/lib/main.js",
@@ -3631,17 +3640,17 @@
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/lib/utils.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/index.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/node_modules/arr-flatten/index.js",
-        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/node_modules/array-slice/index.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/array-unique/index.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/index.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/index.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/index.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/is-number/index.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/index.js",
+        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/build/build.js",
+        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/index.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/index.js",
-        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/is-number/index.js",
-        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/is-number/node_modules/kind-of/index.js",
-        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/is-number/node_modules/kind-of/node_modules/is-buffer/index.js",
+        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/kind-of/index.js",
+        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/kind-of/node_modules/is-buffer/index.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/repeat-string/index.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/preserve/index.js",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/preserve/test.js",
@@ -4787,6 +4796,8 @@
         "node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/copy.js",
         "node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/count.js",
         "node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/create.js",
+        "node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/ensure-natural-number-value.js",
+        "node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/ensure-natural-number.js",
         "node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/eq.js",
         "node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/every.js",
         "node_modules/emissary/node_modules/es6-weak-map/node_modules/es5-ext/object/filter.js",
@@ -5438,10 +5449,6 @@
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/lib/traversal.js",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/index.js",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/domelementtype/index.js",
-        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/entities/index.js",
-        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/entities/lib/decode.js",
-        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/entities/lib/decode_codepoint.js",
-        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/entities/lib/encode.js",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/entities/index.js",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/entities/lib/decode.js",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/entities/lib/decode_codepoint.js",
@@ -5459,7 +5466,11 @@
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/inherits/test.js",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/build/build.js",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/index.js",
+        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/process-nextick-args/index.js",
+        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/process-nextick-args/test.js",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/string_decoder/index.js",
+        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/util-deprecate/browser.js",
+        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/util-deprecate/node.js",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/passthrough.js",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/readable.js",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/transform.js",
@@ -5716,11 +5727,6 @@
         "node_modules/json2dts/node_modules/yargs/lib/validation.js",
         "node_modules/json2dts/node_modules/yargs/node_modules/camelcase/index.js",
         "node_modules/json2dts/node_modules/yargs/node_modules/cliui/index.js",
-        "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/index.js",
-        "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/code-point-at/index.js",
-        "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/code-point-at/node_modules/number-is-nan/index.js",
-        "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/is-fullwidth-code-point/index.js",
-        "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan/index.js",
         "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/strip-ansi/index.js",
         "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/strip-ansi/node_modules/ansi-regex/index.js",
         "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/wrap-ansi/index.js",
@@ -5728,6 +5734,13 @@
         "node_modules/json2dts/node_modules/yargs/node_modules/os-locale/index.js",
         "node_modules/json2dts/node_modules/yargs/node_modules/os-locale/node_modules/lcid/index.js",
         "node_modules/json2dts/node_modules/yargs/node_modules/os-locale/node_modules/lcid/node_modules/invert-kv/index.js",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/index.js",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/code-point-at/index.js",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/code-point-at/node_modules/number-is-nan/index.js",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/is-fullwidth-code-point/index.js",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan/index.js",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/strip-ansi/index.js",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/strip-ansi/node_modules/ansi-regex/index.js",
         "node_modules/json2dts/node_modules/yargs/node_modules/window-size/cli.js",
         "node_modules/json2dts/node_modules/yargs/node_modules/window-size/index.js",
         "node_modules/json2dts/node_modules/yargs/node_modules/y18n/index.js",
@@ -6243,14 +6256,14 @@
         "node_modules/babel/node_modules/babel-core/templates.json",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/arrify/package.json",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/node_modules/arr-flatten/package.json",
-        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/node_modules/array-slice/package.json",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff/package.json",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/array-unique/package.json",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/is-number/package.json",
+        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/component.json",
+        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/node_modules/isarray/package.json",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject/package.json",
-        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/is-number/node_modules/kind-of/node_modules/is-buffer/package.json",
-        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/is-number/node_modules/kind-of/package.json",
-        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/is-number/package.json",
+        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/kind-of/node_modules/is-buffer/package.json",
+        "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/kind-of/package.json",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/package.json",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/repeat-string/package.json",
         "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/package.json",
@@ -6380,11 +6393,6 @@
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domelementtype/package.json",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domhandler/package.json",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/domelementtype/package.json",
-        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/entities/maps/decode.json",
-        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/entities/maps/entities.json",
-        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/entities/maps/legacy.json",
-        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/entities/maps/xml.json",
-        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/node_modules/entities/package.json",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/node_modules/dom-serializer/package.json",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/domutils/package.json",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/entities/maps/decode.json",
@@ -6396,7 +6404,9 @@
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/inherits/package.json",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/component.json",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/isarray/package.json",
+        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/process-nextick-args/package.json",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/string_decoder/package.json",
+        "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/node_modules/util-deprecate/package.json",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/node_modules/readable-stream/package.json",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/package.json",
         "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/nwmatcher/package.json",
@@ -6503,18 +6513,17 @@
         "node_modules/json2dts/node_modules/yargs/locales/en.json",
         "node_modules/json2dts/node_modules/yargs/locales/es.json",
         "node_modules/json2dts/node_modules/yargs/locales/fr.json",
+        "node_modules/json2dts/node_modules/yargs/locales/id.json",
         "node_modules/json2dts/node_modules/yargs/locales/ja.json",
+        "node_modules/json2dts/node_modules/yargs/locales/ko.json",
+        "node_modules/json2dts/node_modules/yargs/locales/nb.json",
         "node_modules/json2dts/node_modules/yargs/locales/pirate.json",
         "node_modules/json2dts/node_modules/yargs/locales/pl.json",
         "node_modules/json2dts/node_modules/yargs/locales/pt.json",
         "node_modules/json2dts/node_modules/yargs/locales/pt_BR.json",
+        "node_modules/json2dts/node_modules/yargs/locales/tr.json",
         "node_modules/json2dts/node_modules/yargs/locales/zh.json",
         "node_modules/json2dts/node_modules/yargs/node_modules/camelcase/package.json",
-        "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/code-point-at/node_modules/number-is-nan/package.json",
-        "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/code-point-at/package.json",
-        "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan/package.json",
-        "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/is-fullwidth-code-point/package.json",
-        "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/package.json",
         "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/strip-ansi/node_modules/ansi-regex/package.json",
         "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/strip-ansi/package.json",
         "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/wrap-ansi/package.json",
@@ -6524,6 +6533,13 @@
         "node_modules/json2dts/node_modules/yargs/node_modules/os-locale/node_modules/lcid/node_modules/invert-kv/package.json",
         "node_modules/json2dts/node_modules/yargs/node_modules/os-locale/node_modules/lcid/package.json",
         "node_modules/json2dts/node_modules/yargs/node_modules/os-locale/package.json",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/code-point-at/node_modules/number-is-nan/package.json",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/code-point-at/package.json",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/is-fullwidth-code-point/node_modules/number-is-nan/package.json",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/is-fullwidth-code-point/package.json",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/strip-ansi/node_modules/ansi-regex/package.json",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/strip-ansi/package.json",
+        "node_modules/json2dts/node_modules/yargs/node_modules/string-width/package.json",
         "node_modules/json2dts/node_modules/yargs/node_modules/window-size/package.json",
         "node_modules/json2dts/node_modules/yargs/node_modules/y18n/package.json",
         "node_modules/json2dts/node_modules/yargs/package.json",
@@ -6600,7 +6616,6 @@
     "folders": [
       {
         "paths": [
-          "",
           "dist",
           "dist/main/atom",
           "dist/main/atom/commands",
@@ -6622,6 +6637,7 @@
           "dist/typescript",
           "dist/worker",
           "dist/worker/lib",
+          "",
           "lib",
           "views"
         ],
@@ -6641,7 +6657,7 @@
           "immutable": "^3.7.3",
           "json2dts": "0.0.1",
           "mkdirp": "^0.5.0",
-          "ntypescript": "1.201511240604.1",
+          "ntypescript": "1.201512030612.1",
           "react": "^0.13.3",
           "season": "^5.1.4",
           "tsconfig": "^2.2.0",
@@ -7265,7 +7281,7 @@
           "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/lib"
         ],
         "dependencies": {
-          "arr-diff": "^1.1.0",
+          "arr-diff": "^2.0.0",
           "array-unique": "^0.2.1",
           "braces": "^1.8.1",
           "expand-brackets": "^0.1.4",
@@ -7273,7 +7289,7 @@
           "filename-regex": "^2.0.0",
           "is-extglob": "^1.0.0",
           "is-glob": "^2.0.1",
-          "kind-of": "^2.0.1",
+          "kind-of": "^3.0.2",
           "lazy-cache": "^0.2.3",
           "normalize-path": "^2.0.0",
           "object.omit": "^2.0.0",
@@ -7286,8 +7302,7 @@
           "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/arr-diff"
         ],
         "dependencies": {
-          "arr-flatten": "^1.0.1",
-          "array-slice": "^0.2.3"
+          "arr-flatten": "^1.0.1"
         }
       },
       {
@@ -7314,11 +7329,27 @@
           "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range"
         ],
         "dependencies": {
-          "is-number": "^1.1.2",
-          "isobject": "^1.0.0",
-          "randomatic": "^1.1.0",
-          "repeat-element": "^1.1.0",
+          "is-number": "^2.1.0",
+          "isobject": "^2.0.0",
+          "randomatic": "^1.1.3",
+          "repeat-element": "^1.1.2",
           "repeat-string": "^1.5.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/is-number"
+        ],
+        "dependencies": {
+          "kind-of": "^3.0.2"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/isobject"
+        ],
+        "dependencies": {
+          "isarray": "0.0.1"
         }
       },
       {
@@ -7332,15 +7363,7 @@
       },
       {
         "paths": [
-          "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/is-number"
-        ],
-        "dependencies": {
-          "kind-of": "^3.0.2"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/is-number/node_modules/kind-of"
+          "node_modules/babel/node_modules/chokidar/node_modules/anymatch/node_modules/micromatch/node_modules/braces/node_modules/expand-range/node_modules/fill-range/node_modules/randomatic/node_modules/kind-of"
         ],
         "dependencies": {
           "is-buffer": "^1.0.2"
@@ -7811,7 +7834,7 @@
         ],
         "dependencies": {
           "es6-iterator": "2",
-          "es6-symbol": "3"
+          "es6-symbol": "~3.0.1"
         }
       },
       {
@@ -7992,18 +8015,14 @@
       {
         "paths": [
           "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/lib",
-          "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2",
-          "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/test",
-          "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/test/Events",
-          "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/test/Feeds",
-          "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2/test/Stream"
+          "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/htmlparser2"
         ],
         "dependencies": {
-          "domhandler": "2.3",
-          "domutils": "1.5",
-          "domelementtype": "1",
-          "readable-stream": "1.1",
-          "entities": "1.0"
+          "domelementtype": "^1.3.0",
+          "domhandler": "^2.3.0",
+          "domutils": "^1.5.1",
+          "entities": "^1.1.1",
+          "readable-stream": "^2.0.2"
         }
       },
       {
@@ -8045,9 +8064,11 @@
         ],
         "dependencies": {
           "core-util-is": "~1.0.0",
+          "inherits": "~2.0.1",
           "isarray": "0.0.1",
+          "process-nextick-args": "~1.0.0",
           "string_decoder": "~0.10.x",
-          "inherits": "~2.0.1"
+          "util-deprecate": "~1.0.1"
         }
       },
       {
@@ -8327,7 +8348,7 @@
           "node_modules/htmltojsx/node_modules/jsdom-no-contextify/node_modules/request/node_modules/mime-types"
         ],
         "dependencies": {
-          "mime-db": "~1.19.0"
+          "mime-db": "~1.20.0"
         }
       },
       {
@@ -8346,11 +8367,12 @@
           "node_modules/json2dts/node_modules/yargs/locales"
         ],
         "dependencies": {
-          "camelcase": "^1.2.1",
+          "camelcase": "^2.0.1",
           "cliui": "^3.0.3",
           "decamelize": "^1.1.1",
           "os-locale": "^1.4.0",
-          "window-size": "^0.1.2",
+          "string-width": "^1.0.1",
+          "window-size": "^0.1.4",
           "y18n": "^3.2.0"
         }
       },
@@ -8363,32 +8385,6 @@
           "string-width": "^1.0.1",
           "strip-ansi": "^3.0.0",
           "wrap-ansi": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width"
-        ],
-        "dependencies": {
-          "code-point-at": "^1.0.0",
-          "is-fullwidth-code-point": "^1.0.0",
-          "strip-ansi": "^3.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/code-point-at"
-        ],
-        "dependencies": {
-          "number-is-nan": "^1.0.0"
-        }
-      },
-      {
-        "paths": [
-          "node_modules/json2dts/node_modules/yargs/node_modules/cliui/node_modules/string-width/node_modules/is-fullwidth-code-point"
-        ],
-        "dependencies": {
-          "number-is-nan": "^1.0.0"
         }
       },
       {
@@ -8421,6 +8417,40 @@
         ],
         "dependencies": {
           "invert-kv": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/json2dts/node_modules/yargs/node_modules/string-width"
+        ],
+        "dependencies": {
+          "code-point-at": "^1.0.0",
+          "is-fullwidth-code-point": "^1.0.0",
+          "strip-ansi": "^3.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/code-point-at"
+        ],
+        "dependencies": {
+          "number-is-nan": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/is-fullwidth-code-point"
+        ],
+        "dependencies": {
+          "number-is-nan": "^1.0.0"
+        }
+      },
+      {
+        "paths": [
+          "node_modules/json2dts/node_modules/yargs/node_modules/string-width/node_modules/strip-ansi"
+        ],
+        "dependencies": {
+          "ansi-regex": "^2.0.0"
         }
       },
       {

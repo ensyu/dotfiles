@@ -1,8 +1,10 @@
+"use strict";
 var fsu = require("../utils/fsUtil");
 var simpleValidator = require('./simpleValidator');
 var types = simpleValidator.types;
 var compilerOptionsValidation = {
     allowNonTsExtensions: { type: types.boolean },
+    allowSyntheticDefaultImports: { type: types.boolean },
     allowUnreachableCode: { type: types.boolean },
     allowUnusedLabels: { type: types.boolean },
     charset: { type: types.string },
@@ -284,6 +286,8 @@ function createProjectRootSync(srcFile, defaultOptions) {
     var projectSpec = {};
     projectSpec.compilerOptions = tsToRawCompilerOptions(defaultOptions || exports.defaults);
     projectSpec.filesGlob = defaultFilesGlob;
+    projectSpec.compileOnSave = true;
+    projectSpec.buildOnSave = false;
     fs.writeFileSync(projectFilePath, prettyJSON(projectSpec));
     return getProjectSync(srcFile);
 }

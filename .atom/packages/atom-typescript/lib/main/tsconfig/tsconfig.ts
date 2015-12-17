@@ -17,6 +17,7 @@ var types = simpleValidator.types;
  */
 interface CompilerOptions {
     allowNonTsExtensions?: boolean;
+    allowSyntheticDefaultImports?: boolean;
     allowUnreachableCode?: boolean;
     allowUnusedLabels?: boolean;
     charset?: string;
@@ -66,6 +67,7 @@ interface CompilerOptions {
 
 var compilerOptionsValidation: simpleValidator.ValidationInfo = {
     allowNonTsExtensions: { type: types.boolean },
+    allowSyntheticDefaultImports: { type: types.boolean },
     allowUnreachableCode: { type: types.boolean },
     allowUnusedLabels: { type: types.boolean },
     charset: { type: types.string },
@@ -495,6 +497,8 @@ export function createProjectRootSync(srcFile: string, defaultOptions?: ts.Compi
     var projectSpec: TypeScriptProjectRawSpecification = {};
     projectSpec.compilerOptions = tsToRawCompilerOptions(defaultOptions || defaults);
     projectSpec.filesGlob = defaultFilesGlob;
+    projectSpec.compileOnSave = true;
+    projectSpec.buildOnSave = false;
 
     fs.writeFileSync(projectFilePath, prettyJSON(projectSpec));
     return getProjectSync(srcFile);

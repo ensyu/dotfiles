@@ -124,7 +124,7 @@ export function build(query: BuildQuery): Promise<BuildResponse> {
         return output;
     });
 
-    // Also optionally emit a root dts:		
+    // Also optionally emit a root dts:
     building.emitDts(proj);
 
     // If there is a post build script to run ... run it
@@ -138,7 +138,7 @@ export function build(query: BuildQuery): Promise<BuildResponse> {
             }
         });
     }
-    
+
     let tsFilesWithInvalidEmit = outputs
         .filter((o) => o.emitError)
         .map((o) => o.sourceFileName);

@@ -6,7 +6,7 @@
   core:
     themes: [
       "atom-light-ui"
-      "atom-light-syntax"
+      "base16-tomorrow-light-theme"
     ]
   editor:
     invisibles: {}
@@ -16,3 +16,17 @@
   "atom-typescript": {}
   linter:
     showErrorPanel: false
+  term3:
+    colors:
+      foreground:
+        red: 0
+        green: 0
+        blue: 0
+        alpha: 1
+      background:
+        red: 255
+        green: 255
+        blue: 255
+        alpha: 1
+  "autocomplete-plus": {}
+  "linter-tslint": {}
